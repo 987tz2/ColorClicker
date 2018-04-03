@@ -9,19 +9,29 @@
 /* Begin PBXBuildFile section */
 		669262B32057552200DDC379 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669262B22057552200DDC379 /* AppDelegate.swift */; };
 		669262B52057552200DDC379 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669262B42057552200DDC379 /* ViewController.swift */; };
-		669262B82057552200DDC379 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 669262B62057552200DDC379 /* Main.storyboard */; };
 		669262BA2057552200DDC379 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 669262B92057552200DDC379 /* Assets.xcassets */; };
 		669262BD2057552200DDC379 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 669262BB2057552200DDC379 /* LaunchScreen.storyboard */; };
+		669262C52059F88400DDC379 /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669262C42059F88400DDC379 /* PlayView.swift */; };
+		669262C72059FA6800DDC379 /* PlayViewExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669262C62059FA6800DDC379 /* PlayViewExtention.swift */; };
+		669262C92059FD8E00DDC379 /* LevelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669262C82059FD8E00DDC379 /* LevelCell.swift */; };
+		669262CB2065B8B000DDC379 /* ViewControllerLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669262CA2065B8B000DDC379 /* ViewControllerLevelView.swift */; };
+		669262CD2069813900DDC379 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669262CC2069813900DDC379 /* HelpView.swift */; };
+		66A879BF2069CEC1007F8399 /* GameScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A879BE2069CEC1007F8399 /* GameScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		669262AF2057552200DDC379 /* Color Clicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Color Clicker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		669262B22057552200DDC379 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		669262B42057552200DDC379 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		669262B72057552200DDC379 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		669262B92057552200DDC379 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		669262BC2057552200DDC379 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		669262BE2057552200DDC379 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		669262C42059F88400DDC379 /* PlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		669262C62059FA6800DDC379 /* PlayViewExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewExtention.swift; sourceTree = "<group>"; };
+		669262C82059FD8E00DDC379 /* LevelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCell.swift; sourceTree = "<group>"; };
+		669262CA2065B8B000DDC379 /* ViewControllerLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerLevelView.swift; sourceTree = "<group>"; };
+		669262CC2069813900DDC379 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
+		66A879BE2069CEC1007F8399 /* GameScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +66,12 @@
 			children = (
 				669262B22057552200DDC379 /* AppDelegate.swift */,
 				669262B42057552200DDC379 /* ViewController.swift */,
-				669262B62057552200DDC379 /* Main.storyboard */,
+				669262CC2069813900DDC379 /* HelpView.swift */,
+				669262C42059F88400DDC379 /* PlayView.swift */,
+				669262C62059FA6800DDC379 /* PlayViewExtention.swift */,
+				66A879BE2069CEC1007F8399 /* GameScreen.swift */,
+				669262C82059FD8E00DDC379 /* LevelCell.swift */,
+				669262CA2065B8B000DDC379 /* ViewControllerLevelView.swift */,
 				669262B92057552200DDC379 /* Assets.xcassets */,
 				669262BB2057552200DDC379 /* LaunchScreen.storyboard */,
 				669262BE2057552200DDC379 /* Info.plist */,
@@ -91,7 +106,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Adam Farago";
 				TargetAttributes = {
 					669262AE2057552200DDC379 = {
@@ -125,7 +140,6 @@
 			files = (
 				669262BD2057552200DDC379 /* LaunchScreen.storyboard in Resources */,
 				669262BA2057552200DDC379 /* Assets.xcassets in Resources */,
-				669262B82057552200DDC379 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,7 +150,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				669262C52059F88400DDC379 /* PlayView.swift in Sources */,
+				669262C72059FA6800DDC379 /* PlayViewExtention.swift in Sources */,
+				669262CB2065B8B000DDC379 /* ViewControllerLevelView.swift in Sources */,
+				669262CD2069813900DDC379 /* HelpView.swift in Sources */,
+				66A879BF2069CEC1007F8399 /* GameScreen.swift in Sources */,
 				669262B52057552200DDC379 /* ViewController.swift in Sources */,
+				669262C92059FD8E00DDC379 /* LevelCell.swift in Sources */,
 				669262B32057552200DDC379 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -144,14 +164,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		669262B62057552200DDC379 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				669262B72057552200DDC379 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		669262BB2057552200DDC379 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -177,6 +189,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -184,6 +197,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -234,6 +248,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -241,6 +256,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
