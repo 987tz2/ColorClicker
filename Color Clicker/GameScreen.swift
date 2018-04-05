@@ -21,7 +21,6 @@ class GameScreen: UIViewController {
     var seconds = 50
     var timer = Timer()
     var isTimerRunning = false
-    var timeLabelColor = UIColor.red
     
     ///MARK: - Functions
     
@@ -40,30 +39,14 @@ class GameScreen: UIViewController {
         startButton.addTarget(self, action: #selector(startButtonPress(sender:)), for: .touchUpInside)
         timeUp.addTarget(self, action: #selector(timeUpPress(sender:)), for: .touchUpInside)
         
-        buttonBottomRight.addTarget(self, action: #selector(gameButtonPress(sender:)), for: .touchUpInside)
-        buttonBottomLeft.addTarget(self, action: #selector(gameButtonPress(sender:)), for: .touchUpInside)
-        buttonTopLeft.addTarget(self, action: #selector(gameButtonPress(sender:)), for: .touchUpInside)
-        buttonTopRight.addTarget(self, action: #selector(gameButtonPress(sender:)), for: .touchUpInside)
+//        buttonBottomRight.addTarget(self, action: #selector(gameButtonPress(sender:)), for: .touchUpInside)
+//        buttonBottomLeft.addTarget(self, action: #selector(gameButtonPress(sender:)), for: .touchUpInside)
+//        buttonTopLeft.addTarget(self, action: #selector(gameButtonPress(sender:)), for: .touchUpInside)
+//        buttonTopRight.addTarget(self, action: #selector(gameButtonPress(sender:)), for: .touchUpInside)
         
     }
-    override func viewDidAppear(_ animated: Bool) {
-        timeLabel.textColor = randomizeColor()
-        timeLabelColor = timeReturnColor(label: timeLabel)
-        setButtonColors(button1: buttonTopRight, button2: buttonTopLeft, button3: buttonBottomLeft, button4: buttonBottomRight)
-    }
-    @objc func gameButtonPress(sender:UIButton!) {
-        
-        if ((sender.titleLabel?.text)! == colorDictionary[timeLabelColor]!){
-            timeLabel.textColor = randomizeColor()
-            setButtonColors(button1: buttonTopRight, button2: buttonTopLeft, button3: buttonBottomLeft, button4: buttonBottomRight)
-            
-        } else { }
-        
-        print("buttonPressed before: \(colorDictionary[timeLabelColor]!)")
-        timeLabelColor = timeReturnColor(label: timeLabel)
-        print("buttonPressed after: \(colorDictionary[timeLabelColor]!)")
-        
-    }
+    
+    // MARK: - Button Functions
     @objc func backButtonPress(sender:UIButton!){
         self.present(PlayView(), animated: true, completion: nil)
         timer.invalidate()
@@ -76,54 +59,6 @@ class GameScreen: UIViewController {
         setButtonStatus(enabled: true, buttonAlpha: 1)
         runTimer()
     }
-    @objc func timeUpPress(sender:UIButton!){
-        self.present(PlayView(), animated: true, completion: nil)
-    }
-    func runTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(GameScreen.updateTimer)), userInfo: nil, repeats: true)
-    }
-    @objc func updateTimer() {
-        if (seconds >= 1){
-            
-            seconds -= 1
-            timeLabel.text = "\(seconds)"
-            print("updateTimer: \(colorDictionary[timeLabelColor]!)")
-            
-        } else if (seconds == 0) {
-            
-            view.backgroundColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.9)
-            timeUp.isHidden = false
-            
-            timer.invalidate()
-            setButtonStatus(enabled: false, buttonAlpha: 0.2)
-        }
-    }
-    func timeReturnColor (label:UILabel) -> UIColor {
-        guard let color = label.textColor else {fatalError("Something went wrong")}
-        return color
-    }
-    func setButtonColors(button1: UIButton, button2: UIButton, button3: UIButton, button4: UIButton){
-        
-        var buttonArray = [button1, button2, button3, button4]
-        let randomButton = GKRandomSource.sharedRandom().nextInt(upperBound: buttonArray.count)
-
-        let luckyNumber = buttonArray[randomButton]
-        luckyNumber.setTitle(colorDictionary[timeLabelColor], for: .normal)
-
-        buttonArray.remove(at: randomButton)
-
-        buttonArray[0].titleLabel?.textColor = randomizeColor()
-        buttonArray[1].titleLabel?.textColor = randomizeColor()
-        buttonArray[2].titleLabel?.textColor = randomizeColor()
-
-
-        buttonArray[0].setTitle(randomizeWords(), for: .normal)
-        buttonArray[1].setTitle(randomizeWords(), for: .normal)
-        buttonArray[2].setTitle(randomizeWords(), for: .normal)
-        
-        
-    }
-    
     func setButtonStatus(enabled: Bool, buttonAlpha: CGFloat){
         
         buttonTopLeft.alpha = buttonAlpha
@@ -137,6 +72,35 @@ class GameScreen: UIViewController {
         buttonBottomLeft.isEnabled = enabled
         
     }
+    
+    
+    
+    //MARK: - Timer Functions
+    @objc func timeUpPress(sender:UIButton!){ self.present(PlayView(), animated: true, completion: nil) }
+    func runTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(GameScreen.updateTimer)), userInfo: nil, repeats: true)
+    }
+    @objc func updateTimer() {
+        
+        if (seconds >= 1){
+            
+            seconds -= 1
+            timeLabel.text = "\(seconds)"
+            
+            setButtonProperties()
+            
+        } else if (seconds == 0) {
+            
+            view.backgroundColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.9)
+            
+            setButtonStatus(enabled: false, buttonAlpha: 0.2)
+            timeUp.isHidden = false
+            timer.invalidate()
+        }
+    }
+    
+    
+    
     //MARK: - Random Algorithms
     
     func randomizeColor() -> UIColor {
@@ -144,12 +108,43 @@ class GameScreen: UIViewController {
         
         return colorWords[randomTitle]
     }
-    
     func randomizeWords() -> String {
         let randomTitle = GKRandomSource.sharedRandom().nextInt(upperBound: colorTitles.count)
         
         return colorTitles[randomTitle]
     }
+    
+    
+    
+    //MARK: - Game Functions
+    
+    func getTimerColor() -> UIColor {
+        return timeLabel.textColor
+    }
+    
+    func setButtonProperties() {
+        var arrayOfButtons = [buttonBottomRight,buttonBottomLeft,buttonTopRight,buttonTopLeft]
+        let randomNumber = GKRandomSource.sharedRandom().nextInt(upperBound: arrayOfButtons.count)
+        let luckyButton = arrayOfButtons[randomNumber]
+        
+        luckyButton.setTitle(colorDictionary[getTimerColor()], for: .normal)
+        
+//        arrayOfButtons[0].setTitleColor(randomizeColor(), for: UIControlState(rawValue: 0))
+//        arrayOfButtons[0].setTitleColor(randomizeColor(), for: UIControlState(rawValue: 0))
+//        arrayOfButtons[0].setTitleColor(randomizeColor(), for: UIControlState(rawValue: 0))
+//        arrayOfButtons[0].setTitleColor(randomizeColor(), for: UIControlState(rawValue: 0))
+        
+        arrayOfButtons.map() { $0.setTitleColor(randomizeColor(), for: UIControlState(rawValue: 0))}
+        
+        arrayOfButtons.remove(at: randomNumber)
+        
+        arrayOfButtons[0].setTitle(randomizeWords(), for: .normal)
+        arrayOfButtons[1].setTitle(randomizeWords(), for: .normal)
+        arrayOfButtons[2].setTitle(randomizeWords(), for: .normal)
+        
+        
+    }
+    
     
     //MARK: - Objectes
     
@@ -203,7 +198,6 @@ class GameScreen: UIViewController {
             button.titleLabel?.font = UIFont(name: "AvenirNext-Regular", size: 40)
             button.translatesAutoresizingMaskIntoConstraints = false
             button.titleLabel?.numberOfLines = -1
-            button.backgroundColor = .yellow
         
         return button
     }()
@@ -215,7 +209,6 @@ class GameScreen: UIViewController {
             button.translatesAutoresizingMaskIntoConstraints = false
             button.titleLabel?.font = UIFont(name: "AvenirNext-Regular", size: 40)
             button.titleLabel?.numberOfLines = -1
-            button.backgroundColor = .green
         
         return button
     }()
@@ -227,7 +220,6 @@ class GameScreen: UIViewController {
             button.translatesAutoresizingMaskIntoConstraints = false
             button.titleLabel?.font = UIFont(name: "AvenirNext-Regular", size: 40)
             button.titleLabel?.numberOfLines = -1
-            button.backgroundColor = .black
         
         return button
     }()
@@ -239,7 +231,6 @@ class GameScreen: UIViewController {
             button.translatesAutoresizingMaskIntoConstraints = false
             button.titleLabel?.font = UIFont(name: "AvenirNext-Regular", size: 40)
             button.titleLabel?.numberOfLines = -1
-            button.backgroundColor = .red
         
         return button
     }()
