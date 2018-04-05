@@ -38,7 +38,6 @@ class PlayView: UIViewController  {
         
         let CounterTest: GameScreen = GameScreen()
         CounterTest.levelSelected = levelSelect
-        print(CounterTest.levelSelected)
         
         self.present(CounterTest, animated: true, completion: nil)
     }

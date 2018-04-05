@@ -19,8 +19,6 @@ class ViewController: UIViewController {
         setupViews()
         playButton.addTarget(self, action: #selector(buttonGrowth(sender:)), for: .touchUpInside)
         helpButton.addTarget(self, action: #selector(buttonGrowth2(sender:)), for: .touchUpInside)
-        randomNumber.addTarget(self, action: #selector(randomNumberPress(sender:)), for: .touchUpInside)
-        counterTestButton.addTarget(self, action: #selector(counterTestPress(sender:)), for: .touchUpInside)
     }
     
     @objc func buttonGrowth(sender:UIButton!){
@@ -45,12 +43,6 @@ class ViewController: UIViewController {
         
         let helpView = HelpView()
         self.present(helpView, animated: true, completion: nil)
-    }
-    
-    @objc func randomNumberPress(sender:UIButton!){
-        let randomNumberN = Int(arc4random_uniform(6))
-        let myString = String(randomNumberN)
-        randomNumber.setTitle(myString, for: .normal)
     }
     
     @objc func counterTestPress(sender:UIButton!){
@@ -89,27 +81,6 @@ class ViewController: UIViewController {
         
         return button
     } ()
-
-    let randomNumber : UIButton = {
-        let button = UIButton()
-            button.setTitleColor(UIColor.yellow, for: UIControlState(rawValue:0))
-            button.setTitle("Number", for: .normal)
-            button.titleLabel?.font = UIFont(name: "AvenirNext-Bold", size: 40)
-            button.translatesAutoresizingMaskIntoConstraints = false
-//            button.backgroundColor = UIColor.black
-            button.titleLabel?.textAlignment = .center
-        
-        return button
-    }()
-    
-    let counterTestButton: UIButton = {
-        let button = UIButton()
-            button.setTitle("Go", for: .normal)
-            button.titleLabel?.font = UIFont(name: "AvenirNext-Bold", size: 40)
-            button.translatesAutoresizingMaskIntoConstraints = false
-
-        return button
-    }()
     
     //MARK: - Set Up Views
     func setupViews(){
@@ -126,16 +97,6 @@ class ViewController: UIViewController {
         dabIcon.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 0).isActive = true
         dabIcon.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: 0).isActive = true
         dabIcon.heightAnchor.constraint(equalToConstant: 200).isActive = true
-        
-        view.addSubview(randomNumber)
-        randomNumber.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 250).isActive = true
-        randomNumber.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        randomNumber.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 0).isActive = true
-        randomNumber.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: 0).isActive = true
-        
-        view.addSubview(counterTestButton)
-        counterTestButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 300).isActive = true
-        counterTestButton.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        counterTestButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
+    
     }
 }
