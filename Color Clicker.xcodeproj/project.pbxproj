@@ -17,6 +17,7 @@
 		669262CB2065B8B000DDC379 /* ViewControllerLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669262CA2065B8B000DDC379 /* ViewControllerLevelView.swift */; };
 		669262CD2069813900DDC379 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669262CC2069813900DDC379 /* HelpView.swift */; };
 		66A879BF2069CEC1007F8399 /* GameScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A879BE2069CEC1007F8399 /* GameScreen.swift */; };
+		66B30555207C41CF00925DB8 /* GameOverScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B30554207C41CF00925DB8 /* GameOverScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		669262CA2065B8B000DDC379 /* ViewControllerLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerLevelView.swift; sourceTree = "<group>"; };
 		669262CC2069813900DDC379 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		66A879BE2069CEC1007F8399 /* GameScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreen.swift; sourceTree = "<group>"; };
+		66B30554207C41CF00925DB8 /* GameOverScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				669262C42059F88400DDC379 /* PlayView.swift */,
 				669262C62059FA6800DDC379 /* PlayViewExtention.swift */,
 				66A879BE2069CEC1007F8399 /* GameScreen.swift */,
+				66B30554207C41CF00925DB8 /* GameOverScreen.swift */,
 				669262C82059FD8E00DDC379 /* LevelCell.swift */,
 				669262CA2065B8B000DDC379 /* ViewControllerLevelView.swift */,
 				669262B92057552200DDC379 /* Assets.xcassets */,
@@ -150,6 +153,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66B30555207C41CF00925DB8 /* GameOverScreen.swift in Sources */,
 				669262C52059F88400DDC379 /* PlayView.swift in Sources */,
 				669262C72059FA6800DDC379 /* PlayViewExtention.swift in Sources */,
 				669262CB2065B8B000DDC379 /* ViewControllerLevelView.swift in Sources */,

@@ -34,6 +34,7 @@ extension PlayView: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         levelNumber.isEnabled = true
         levelNumber.setTitle("\(levelNumbers[indexPath.row])", for: .normal)
         levelSelect = levelNumbers[indexPath.row]
+        UserDefaults().set(levelSelect, forKey: "pLevel")
         
         
     }

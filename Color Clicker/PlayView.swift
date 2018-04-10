@@ -12,7 +12,6 @@ class PlayView: UIViewController  {
     
     var levelNumbers = [1,2,3,4,5,6,7,8,9,10,11,12]
     let cellID = "cellID"
-    
     var levelSelect: Int = 0
     
     //MARK: - Functions
@@ -37,7 +36,7 @@ class PlayView: UIViewController  {
     @objc func levelSelected(sender:UIButton!) {
         
         let CounterTest: GameScreen = GameScreen()
-        CounterTest.levelSelected = levelSelect
+        CounterTest.levelSelected = UserDefaults().integer(forKey: "pLevel")
         
         self.present(CounterTest, animated: true, completion: nil)
     }
